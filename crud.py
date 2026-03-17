@@ -54,3 +54,7 @@ def get_books_by_author(
         .limit(limit)
         .all()
     )
+
+
+def get_author_by_name(db: Session, name: str) -> models.Author | None:
+    return db.query(models.Author).filter(models.Author.name == name).first()
